@@ -1,0 +1,35 @@
+
+
+> web@0.1.0 build
+> next build
+
+   [1m[38;2;173;127;168m▲ Next.js 16.0.3[39m[22m (Turbopack)
+
+ [37m[1m [22m[39m Creating an optimized production build ...
+ [32m[1m✓[22m[39m Compiled successfully in 2.2s
+[?25l [37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Running TypeScript  [36m.[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Running TypeScript  [36m..[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Running TypeScript  [36m...[39m[2K[1G[1A[2K[1G[?25h[?25l [37m[1m [22m[39m Finished TypeScript in 2.2s  [36m.[39m[2K[1G[1A[2K[1G[?25h [37m[1m [22m[39m Finished TypeScript in 2.2s     [32m[1m✓[22m[39m Finished TypeScript in 2.2s 
+[?25l [37m[1m [22m[39m Collecting page data using 10 workers  [36m.[39m[2K[1G[1A[2K[1G [37m[1m [22m[39m Collecting page data using 10 workers  [36m..[39m[2K[1G[1A[2K[1G[?25h [37m[1m [22m[39m Collecting page data using 10 workers in 271.8ms     [32m[1m✓[22m[39m Collecting page data using 10 workers in 271.8ms 
+[?25l [37m[1m [22m[39m Generating static pages using 10 workers (0/14)  [36m[    ][39m[2K[1G[1A[2K[1G[1A[2K[1G [37m[1m [22m[39m Generating static pages using 10 workers (0/14)  [36m[=   ][39m[2K[1G[1A[2K[1G[1A[2K[1G[?25h [32m[1m✓[22m[39m Generating static pages using 10 workers (14/14) in 350.9ms
+[?25l [37m[1m [22m[39m Finalizing page optimization  [36m.[39m[2K[1G[1A[2K[1G[?25h [37m[1m [22m[39m Finalizing page optimization in 6.5ms     [32m[1m✓[22m[39m Finalizing page optimization in 6.5ms 
+
+[4mRoute (app)[24m
+┌ ○ /
+├ ○ /_not-found
+├ ○ /dashboard
+├ ○ /dashboard/customers
+├ ○ /dashboard/orders
+├ ƒ /dashboard/orders/[id]
+├ ƒ /dashboard/orders/[id]/proforma
+├ ○ /dashboard/orders/new
+├ ○ /dashboard/production
+├ ○ /dashboard/products
+├ ○ /dashboard/shipment
+├ ○ /dashboard/stock
+├ ○ /dashboard/users
+└ ○ /login
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+[?25h⠙[1G[0K

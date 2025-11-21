@@ -1,0 +1,142 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      String     @default("WORKER")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Material {
+  id            String   @id @default(uuid())
+  name          String
+  unit          String   // kg, m2, adet
+  currentStock  Float    @default(0)
+  minStockLevel Float    @default(0)
+  unitPrice     Float    @default(0)
+  currency      String   @default("TRY")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  recipeItems   RecipeItem[]
+  priceHistory  MaterialPriceHistory[]
+}
+
+model MaterialPriceHistory {
+  id         String   @id @default(uuid())
+  materialId String
+  material   Material @relation(fields: [materialId], references: [id], onDelete: Cascade)
+  price      Float
+  currency   String   @default("TRY")
+  changedAt  DateTime @default(now())
+}
+
+model Product {
+  id          String       @id @default(uuid())
+  name        String
+  basePrice   Float
+  description String?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  
+  recipe      RecipeItem[]
+  orderItems  OrderItem[]
+}
+
+model RecipeItem {
+  id         String   @id @default(uuid())
+  productId  String
+  product    Product  @relation(fields: [productId], references: [id])
+  materialId String
+  material   Material @relation(fields: [materialId], references: [id])
+  quantity   Float    // Quantity required per unit of product
+  
+  @@unique([productId, materialId])
+}
+
+model Order {
+  id           String      @id @default(uuid())
+  customerName String
+  customerInfo String?       // Address, Phone, etc. (JSON string)
+  status       String @default("PENDING")
+  totalAmount  Float
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  
+  items        OrderItem[]
+  production   ProductionTracking?
+  shipment     Shipment?
+  
+  customerId   String?
+  customer     Customer?   @relation(fields: [customerId], references: [id])
+}
+
+model Customer {
+  id        String   @id @default(uuid())
+  name      String
+  email     String?
+  phone     String?
+  address   String?
+  taxId     String?
+  taxOffice String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  orders    Order[]
+}
+
+model OrderItem {
+  id            String  @id @default(uuid())
+  orderId       String
+  order         Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId     String
+  product       Product @relation(fields: [productId], references: [id])
+  quantity      Int
+  unitPrice     Float
+  configuration String?   // Selected parameters (Color, Size, Lock type etc.) (JSON string)
+}
+
+model ProductionTracking {
+  id            String          @id @default(uuid())
+  orderId       String          @unique
+  order         Order           @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  currentStage  String @default("CUTTING_BENDING")
+  startedAt     DateTime        @default(now())
+  completedAt   DateTime?
+  
+  history       ProductionHistory[]
+}
+
+model ProductionHistory {
+  id           String             @id @default(uuid())
+  trackingId   String
+  tracking     ProductionTracking @relation(fields: [trackingId], references: [id], onDelete: Cascade)
+  stage        String
+  enteredAt    DateTime           @default(now())
+  completedAt  DateTime?
+  notes        String?
+}
+
+model Shipment {
+  id            String   @id @default(uuid())
+  orderId       String   @unique
+  order         Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  waybillNumber String   @unique // İrsaliye No
+  shippedAt     DateTime @default(now())
+  carrierInfo   String? // (JSON string)
+}

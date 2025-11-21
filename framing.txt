@@ -1,0 +1,45 @@
+1. Yönetici Özeti ve Vizyon
+Bu doküman, çelik kapı üreticileri için özel olarak tasarlanmış, yeni nesil bir Üretim Yönetim Platformu olan "AtölyeOS" projesinin temel çerçevesini ve yol haritasını tanımlar. Vizyonumuz: Üreticileri, "Excel + WhatsApp + Defter" üçgeninde yönetilen, verimsiz ve belirsiz operasyonlardan; siparişten sevkiyata kadar tüm süreçlerini tek bir ekrandan, anlık verilerle yönetebildikleri, kârlı ve dijital bir işletme modeline taşımaktır. AtölyeOS, bir yazılımdan öte, fabrikanın dijital işletim sistemi olmayı hedefler.
+
+2. Çözülen Temel Problemler ve Hedef Kitle
+Hedef Kitle: Başta Kayseri olmak üzere, Türkiye'deki KOBİ ölçeğindeki çelik kapı üreticileri.
+Çözülen Problemler:
+Operasyonel Körlük: "Hangi sipariş nerede?" sorusunun cevabının olmaması.
+Stok Kaosu: Net stok verisinin olmaması, eksik malzeme yüzünden duran üretim.
+Esneklik Eksikliği: Standart dışı veya özelleştirilmiş müşteri taleplerinin üretim akışını ve stok takibini bozması.
+Güven Kaybı: Müşteriye veriye dayalı, gerçekçi teslim tarihi verilememesi.
+
+3. Uçtan Uca Akış: Stok, Üretim ve Sevkiyat
+AtölyeOS, fabrikanın fiziksel envanter ve üretim hattını dijital bir ayna gibi yansıtarak çalışır.
+A. Stok Yönetimi: Her Şeyin Başlangıç Noktası
+Sistem, "olmayan malzemeyi planlayamaz" ilkesiyle çalışır.
+Malzeme Girişi: Fabrikaya bir tedarikçiden hammadde veya aksesuar geldiğinde, depo sorumlusu irsaliye bilgileri ve birim alış fiyatları ile birlikte gelen tüm malzemeleri sisteme kaydeder. Bu işlemle birlikte, o malzemenin stok miktarı anlık olarak artar.
+Otomatik Stok Düşümü: Bir sipariş üretime planlandığı an, sistem o siparişin reçetesinde yer alan tüm malzemeleri (sac, kilit, boya vb.) otomatik olarak stoktan düşer.
+Canlı Envanter: Bu iki temel işlem sayesinde sistem, anlık stok durumunu, kritik stok seviyesi uyarılarını ve bir kapının gerçek maliyetini net bir şekilde raporlar.
+B. Akıllı Konfigüratör ve Sipariş Onayı (Proforma)
+Parametrik Reçete: Sistem, "bileşen" ve "parametre" mantığıyla çalışarak, sipariş anında renk, kilit, kaplama gibi özelliklerin anlık olarak değiştirilmesine ve katalog dışı özel malzemelerin bile kolayca siparişe eklenmesine olanak tanır, bu da sisteme sonsuz bir esneklik kazandırır.
+Proforma Fatura Çıktısı: Sipariş, tüm bu özelleştirmeler ve fiyatlandırma ile birlikte kesinleştiği an, sistem müşteriye sunulabilecek veya muhasebeye bilgi amaçlı iletilebilecek resmi bir "Proforma Fatura / Sipariş Onay Formu PDF'i" otomatik olarak oluşturur.
+C. Üretim Takibi ve İrsaliye (Sevkiyat)
+Dijital Atölye Panosu: Sistemin ana ekranı, üretimin 4 temel departmanını temsil eden canlı bir dijital pano (Kanban) olacaktır: 1. Kesim & Büküm, 2. Kaynak & Taşlama, 3. Boyama & Yıkama, 4. Montaj & Paketleme.
+Canlı Veri Akışı: Bir sipariş, her departmanda işi bittiğinde, o istasyonun çıkışındaki tabletten tek dokunuşla bir sonraki aşamaya geçirilir.
+Sevkiyat ve İrsaliye Çıktısı: Kapı, son istasyon olan "Montaj & Paketleme"den onaylandığında, dijital kart panonun sonundaki "Sevke Hazır" kolonuna geçer. Ürün fabrikadan fiziksel olarak çıkacağı an, lojistik sorumlusu "Sevk Et" butonuna basar. Sistem, bu işlemle birlikte, yasal olarak zorlu olan "İrsaliye PDF'i" belgesini otomatik olarak oluşturur ve yazdırılmaya hazır hale getirir.
+Sonuç: Bu akış, yönetimin atölyedeki darboğazları, bekleyen işleri ve siparişlerin anlık konumunu gerçek zamanlı olarak görmesini sağlar.
+
+4. Teknik ve Güvenlik Mimarisi: "Dijital Kale"
+Teknoloji Yığını:
+Backend: NestJS (TypeScript)
+Veritabanı: PostgreSQL + Prisma ORM
+Frontend: Next.js (React) (Yönetim paneli ve PWA destekli atölye arayüzü)
+Deployment: Docker
+
+
+
+Güvenlik Mimarisi ("Unhackable" Prensibi):
+İzole Veritabanı: Veritabanı sunucusu, internete tamamen kapalı bir Private Subnet'te konumlandırılacaktır.
+Kimlik Doğrulama: Bcrypt ile şifreleme, JWT token'ları ve zorunlu 2FA.
+Yetkilendirme: Rol Tabanlı Erişim Kontrolü (RBAC).
+Veri İletişimi: Tüm trafik HTTPS (SSL/TLS) ile şifrelenecektir.
+
+5. İş Modeli ve Kurulum: %100 Bulut Tabanlı Hizmet (SaaS)
+AtölyeOS, en başından itibaren sadece abonelik tabanlı bir bulut hizmeti (SaaS - Software as a Service) olarak sunulacaktır.
+Müşteri İçin Avantajları: Sıfır donanım yatırımı, öngörülebilir maliyet, otomatik güncellemeler, bakım ve yedeklemenin bizim sorumluluğumuzda olması, üst düzey güvenlik ve her yerden erişim.

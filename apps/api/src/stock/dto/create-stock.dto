@@ -1,0 +1,30 @@
+import { IsNotEmpty, IsString, IsNumber, IsOptional, Min } from 'class-validator';
+
+export class CreateStockDto {
+  @IsNotEmpty()
+  @IsString()
+  name: string;
+
+  @IsNotEmpty()
+  @IsString()
+  unit: string;
+
+  @IsOptional()
+  @IsNumber()
+  @Min(0)
+  currentStock?: number;
+
+  @IsOptional()
+  @IsNumber()
+  @Min(0)
+  minStockLevel?: number;
+
+  @IsOptional()
+  @IsNumber()
+  @Min(0)
+  unitPrice?: number;
+
+  @IsOptional()
+  @IsString()
+  currency?: string;
+}

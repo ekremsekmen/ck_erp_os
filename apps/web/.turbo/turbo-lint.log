@@ -1,0 +1,132 @@
+
+
+> web@0.1.0 lint
+> eslint
+
+[0m[0m
+[0m[4m/Users/ekremsekmen/mycodes/ck_erp_project/apps/web/src/app/dashboard/customers/page.tsx[24m[0m
+[0m    [2m4:18[22m  [33mwarning[39m  'Filter' is defined but never used                               [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m131:65[22m  [31merror[39m    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  [2mreact/no-unescaped-entities[22m[0m
+[0m  [2m131:78[22m  [31merror[39m    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  [2mreact/no-unescaped-entities[22m[0m
+[0m[0m
+[0m[4m/Users/ekremsekmen/mycodes/ck_erp_project/apps/web/src/app/dashboard/layout.tsx[24m[0m
+[0m  [2m18:5[22m  [33mwarning[39m  'Card' is defined but never used             [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m19:5[22m  [33mwarning[39m  'CardContent' is defined but never used      [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m20:5[22m  [33mwarning[39m  'CardDescription' is defined but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m21:5[22m  [33mwarning[39m  'CardHeader' is defined but never used       [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m22:5[22m  [33mwarning[39m  'CardTitle' is defined but never used        [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m[0m
+[0m[4m/Users/ekremsekmen/mycodes/ck_erp_project/apps/web/src/app/dashboard/orders/[id]/page.tsx[24m[0m
+[0m   [2m15:11[22m  [33mwarning[39m  'router' is assigned a value but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m   [2m67:43[22m  [31merror[39m    Unexpected any. Specify a different type     [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m121:72[22m  [31merror[39m    Unexpected any. Specify a different type     [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m122:41[22m  [31merror[39m    Unexpected any. Specify a different type     [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m156:77[22m  [31merror[39m    Unexpected any. Specify a different type     [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m160:77[22m  [31merror[39m    Unexpected any. Specify a different type     [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m164:77[22m  [31merror[39m    Unexpected any. Specify a different type     [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m210:40[22m  [31merror[39m    Unexpected any. Specify a different type     [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m210:63[22m  [31merror[39m    Unexpected any. Specify a different type     [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m[0m
+[0m[4m/Users/ekremsekmen/mycodes/ck_erp_project/apps/web/src/app/dashboard/orders/[id]/proforma/page.tsx[24m[0m
+[0m   [2m32:43[22m   [31merror[39m  Unexpected any. Specify a different type  [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m123:44[22m   [31merror[39m  Unexpected any. Specify a different type  [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m123:108[22m  [31merror[39m  Unexpected any. Specify a different type  [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m124:44[22m   [31merror[39m  Unexpected any. Specify a different type  [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m124:111[22m  [31merror[39m  Unexpected any. Specify a different type  [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m125:44[22m   [31merror[39m  Unexpected any. Specify a different type  [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m125:106[22m  [31merror[39m  Unexpected any. Specify a different type  [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m155:44[22m   [31merror[39m  Unexpected any. Specify a different type  [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m155:67[22m   [31merror[39m  Unexpected any. Specify a different type  [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m[0m
+[0m[4m/Users/ekremsekmen/mycodes/ck_erp_project/apps/web/src/app/dashboard/orders/new/page.tsx[24m[0m
+[0m    [2m8:10[22m  [33mwarning[39m  'Check' is defined but never used            [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m    [2m8:17[22m  [33mwarning[39m  'ChevronsUpDown' is defined but never used   [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m   [2m10:10[22m  [33mwarning[39m  'cn' is defined but never used               [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m   [2m15:5[22m   [33mwarning[39m  'FormDescription' is defined but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m   [2m78:50[22m  [31merror[39m    Unexpected any. Specify a different type     [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m111:46[22m  [31merror[39m    Unexpected any. Specify a different type     [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m[0m
+[0m[4m/Users/ekremsekmen/mycodes/ck_erp_project/apps/web/src/app/dashboard/orders/page.tsx[24m[0m
+[0m  [2m121:65[22m  [31merror[39m    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  [2mreact/no-unescaped-entities[22m[0m
+[0m  [2m121:78[22m  [31merror[39m    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  [2mreact/no-unescaped-entities[22m[0m
+[0m  [2m172:78[22m  [33mwarning[39m  'e' is defined but never used                                    [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m[0m
+[0m[4m/Users/ekremsekmen/mycodes/ck_erp_project/apps/web/src/app/dashboard/page.tsx[24m[0m
+[0m   [2m5:5[22m   [33mwarning[39m  'Activity' is defined but never used      [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m   [2m6:5[22m   [33mwarning[39m  'CreditCard' is defined but never used    [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m19:40[22m  [33mwarning[39m  'Order' is defined but never used         [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m29:28[22m  [31merror[39m    Unexpected any. Specify a different type  [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m30:31[22m  [31merror[39m    Unexpected any. Specify a different type  [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m[0m
+[0m[4m/Users/ekremsekmen/mycodes/ck_erp_project/apps/web/src/app/dashboard/production/page.tsx[24m[0m
+[0m   [2m26:7[22m   [33mwarning[39m  'initialTasks' is assigned a value but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m   [2m44:40[22m  [31merror[39m    Unexpected any. Specify a different type           [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m   [2m45:12[22m  [33mwarning[39m  'loading' is assigned a value but never used       [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m129:72[22m  [31merror[39m    Unexpected any. Specify a different type           [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m150:74[22m  [33mwarning[39m  'e' is defined but never used                      [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m[0m
+[0m[4m/Users/ekremsekmen/mycodes/ck_erp_project/apps/web/src/app/dashboard/products/page.tsx[24m[0m
+[0m  [2m107:62[22m  [31merror[39m  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  [2mreact/no-unescaped-entities[22m[0m
+[0m  [2m107:72[22m  [31merror[39m  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  [2mreact/no-unescaped-entities[22m[0m
+[0m[0m
+[0m[4m/Users/ekremsekmen/mycodes/ck_erp_project/apps/web/src/app/dashboard/shipment/page.tsx[24m[0m
+[0m   [2m30:10[22m  [33mwarning[39m  'Badge' is defined but never used                                [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m100:66[22m  [31merror[39m    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  [2mreact/no-unescaped-entities[22m[0m
+[0m  [2m100:83[22m  [31merror[39m    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  [2mreact/no-unescaped-entities[22m[0m
+[0m[0m
+[0m[4m/Users/ekremsekmen/mycodes/ck_erp_project/apps/web/src/app/dashboard/stock/page.tsx[24m[0m
+[0m  [2m113:65[22m  [31merror[39m  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  [2mreact/no-unescaped-entities[22m[0m
+[0m  [2m113:78[22m  [31merror[39m  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  [2mreact/no-unescaped-entities[22m[0m
+[0m[0m
+[0m[4m/Users/ekremsekmen/mycodes/ck_erp_project/apps/web/src/app/dashboard/users/page.tsx[24m[0m
+[0m  [2m122:67[22m  [31merror[39m  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  [2mreact/no-unescaped-entities[22m[0m
+[0m  [2m122:82[22m  [31merror[39m  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  [2mreact/no-unescaped-entities[22m[0m
+[0m[0m
+[0m[4m/Users/ekremsekmen/mycodes/ck_erp_project/apps/web/src/components/dashboard/dashboard-charts.tsx[24m[0m
+[0m    [2m6:5[22m   [33mwarning[39m  'Bar' is defined but never used                         [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m    [2m7:5[22m   [33mwarning[39m  'BarChart' is defined but never used                    [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m   [2m31:11[22m  [31merror[39m    Unexpected any. Specify a different type                [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m   [2m93:7[22m   [33mwarning[39m  'renderActiveShape' is assigned a value but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m   [2m93:35[22m  [31merror[39m    Unexpected any. Specify a different type                [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m130:12[22m  [33mwarning[39m  'activeIndex' is assigned a value but never used        [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m132:11[22m  [33mwarning[39m  'onPieEnter' is assigned a value but never used         [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m132:28[22m  [31merror[39m    Unexpected any. Specify a different type                [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m[0m
+[0m[4m/Users/ekremsekmen/mycodes/ck_erp_project/apps/web/src/components/dashboard/sidebar.tsx[24m[0m
+[0m  [2m17:10[22m  [33mwarning[39m  'Badge' is defined but never used            [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m20:5[22m   [33mwarning[39m  'Card' is defined but never used             [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m21:5[22m   [33mwarning[39m  'CardContent' is defined but never used      [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m22:5[22m   [33mwarning[39m  'CardDescription' is defined but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m23:5[22m   [33mwarning[39m  'CardHeader' is defined but never used       [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m24:5[22m   [33mwarning[39m  'CardTitle' is defined but never used        [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m[0m
+[0m[4m/Users/ekremsekmen/mycodes/ck_erp_project/apps/web/src/components/forms/customer-form-dialog.tsx[24m[0m
+[0m  [2m7:16[22m  [33mwarning[39m  'Edit' is defined but never used  [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m[0m
+[0m[4m/Users/ekremsekmen/mycodes/ck_erp_project/apps/web/src/components/forms/material-form-dialog.tsx[24m[0m
+[0m   [2m5:16[22m  [33mwarning[39m  'Edit' is defined but never used          [2m@typescript-eslint/no-unused-vars[22m[0m
+[0m  [2m68:54[22m  [31merror[39m    Unexpected any. Specify a different type  [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m[0m
+[0m[4m/Users/ekremsekmen/mycodes/ck_erp_project/apps/web/src/components/forms/product-form-dialog.tsx[24m[0m
+[0m  [2m53:53[22m  [31merror[39m  Unexpected any. Specify a different type                         [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m87:85[22m  [31merror[39m  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  [2mreact/no-unescaped-entities[22m[0m
+[0m[0m
+[0m[4m/Users/ekremsekmen/mycodes/ck_erp_project/apps/web/src/components/forms/user-form-dialog.tsx[24m[0m
+[0m  [2m99:86[22m  [31merror[39m  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  [2mreact/no-unescaped-entities[22m[0m
+[0m[0m
+[0m[4m/Users/ekremsekmen/mycodes/ck_erp_project/apps/web/src/lib/api-client.ts[24m[0m
+[0m  [2m240:20[22m  [31merror[39m  Unexpected any. Specify a different type  [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m245:25[22m  [31merror[39m  Unexpected any. Specify a different type  [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m258:65[22m  [31merror[39m  Unexpected any. Specify a different type  [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m  [2m275:29[22m  [31merror[39m  Unexpected any. Specify a different type  [2m@typescript-eslint/no-explicit-any[22m[0m
+[0m[0m
+[0m[31m[1m✖ 78 problems (46 errors, 32 warnings)[22m[39m[0m
+[0m[31m[1m[22m[39m[0m
+⠙[1G[0K[1mnpm[22m [31merror[39m Lifecycle script `lint` failed with error:
+⠙[1G[0K[1mnpm[22m [31merror[39m [94mcode[39m [33m1[39m
+⠙[1G[0K[1mnpm[22m [31merror[39m [94mpath[39m /Users/ekremsekmen/mycodes/ck_erp_project/apps/web
+⠙[1G[0K[1mnpm[22m [31merror[39m [94mworkspace[39m web@0.1.0
+⠙[1G[0K[1mnpm[22m [31merror[39m [94mlocation[39m /Users/ekremsekmen/mycodes/ck_erp_project/apps/web
+⠙[1G[0K[1mnpm[22m [31merror[39m command failed
+⠙[1G[0K[1mnpm[22m [31merror[39m [94mcommand[39m sh -c eslint
+⠙[1G[0K
