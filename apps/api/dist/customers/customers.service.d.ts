@@ -75,8 +75,8 @@ export declare class CustomersService {
             id: string;
             orderId: string;
             waybillNumber: string;
-            shippedAt: Date;
             carrierInfo: string | null;
+            shippedAt: Date;
         } | null;
         items: ({
             product: {
@@ -92,8 +92,8 @@ export declare class CustomersService {
             orderId: string;
             productId: string;
             quantity: number;
-            unitPrice: number;
             configuration: string | null;
+            unitPrice: number;
         })[];
         production: {
             id: string;

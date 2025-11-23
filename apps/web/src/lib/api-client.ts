@@ -171,6 +171,22 @@ export const deleteShipment = async (id: string): Promise<void> => {
     await apiClient.delete(`/shipment/${id}`);
 };
 
+// Auth
+export const login = async (credentials: { email: string; password: string }): Promise<{ access_token: string }> => {
+    const response = await apiClient.post('/auth/login', credentials);
+    if (response.data.access_token) {
+        localStorage.setItem('token', response.data.access_token);
+    }
+    return response.data;
+};
+
+export const logout = () => {
+    localStorage.removeItem('token');
+    if (typeof window !== 'undefined') {
+        window.location.href = '/login';
+    }
+};
+
 // Users
 export const fetchUsers = async (): Promise<User[]> => {
     const response = await apiClient.get('/users');
@@ -291,3 +307,66 @@ export const updateProductionStage = async (id: string, stage: string): Promise<
 };
 
 export default apiClient;
+
+// BI
+export interface CostAnalysis {
+    productId: string;
+    productName: string;
+    currentTotalCost: number;
+    materialCosts: {
+        materialName: string;
+        quantity: number;
+        unitPrice: number;
+        totalCost: number;
+        priceHistory: {
+            price: number;
+            changedAt: string;
+        }[];
+    }[];
+}
+
+export interface BottleneckAnalysis {
+    stageBenchmarks: {
+        stage: string;
+        averageDurationHours: number;
+        maxDurationHours: number;
+        minDurationHours: number;
+        sampleSize: number;
+    }[];
+    activeDelays: {
+        orderId: string;
+        stage: string;
+        elapsedHours: number;
+        averageExpected: number;
+        delayRisk: string;
+    }[];
+}
+
+export interface StockForecast {
+    pendingOrdersCount: number;
+    forecast: {
+        materialId: string;
+        materialName: string;
+        currentStock: number;
+        reservedForPending: number;
+        projectedStock: number;
+        minStockLevel: number;
+        status: string;
+    }[];
+}
+
+export const fetchCostAnalysis = async (productId: string): Promise<CostAnalysis> => {
+    const response = await apiClient.get(`/bi/cost-analysis/${productId}`);
+    return response.data;
+};
+
+export const fetchBottlenecks = async (): Promise<BottleneckAnalysis> => {
+    const response = await apiClient.get('/bi/bottlenecks');
+    return response.data;
+};
+
+export const fetchStockForecast = async (): Promise<StockForecast> => {
+    const response = await apiClient.get('/bi/stock-forecast');
+    return response.data;
+};
+

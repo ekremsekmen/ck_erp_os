@@ -17,6 +17,7 @@ const common_1 = require("@nestjs/common");
 const orders_service_1 = require("./orders.service");
 const create_order_dto_1 = require("./dto/create-order.dto");
 const update_order_dto_1 = require("./dto/update-order.dto");
+const jwt_auth_guard_1 = require("../auth/jwt-auth.guard");
 let OrdersController = class OrdersController {
     ordersService;
     constructor(ordersService) {
@@ -113,6 +114,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], OrdersController.prototype, "getProformaPdf", null);
 exports.OrdersController = OrdersController = __decorate([
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     (0, common_1.Controller)('orders'),
     __metadata("design:paramtypes", [orders_service_1.OrdersService])
 ], OrdersController);

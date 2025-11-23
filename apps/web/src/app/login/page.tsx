@@ -19,6 +19,7 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { login } from "@/lib/api-client"
 
 
 const formSchema = z.object({
@@ -44,12 +45,18 @@ export default function LoginPage() {
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
         setIsLoading(true)
-        // TODO: Integrate with actual API
-        console.log(values)
-        setTimeout(() => {
-            setIsLoading(false)
+        try {
+            // Call real API
+            await login(values)
+
+            // Redirect to dashboard
             router.push("/dashboard")
-        }, 2000)
+        } catch (error) {
+            console.error("Login failed:", error)
+            alert("Giriş başarısız. Lütfen bilgilerinizi kontrol edin.")
+        } finally {
+            setIsLoading(false)
+        }
     }
 
     return (

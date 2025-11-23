@@ -99,12 +99,12 @@ let OrdersService = class OrdersService {
         return this.prisma.order.delete({ where: { id } });
     }
     async startProduction(id) {
-        const order = await this.prisma.order.findUnique({ where: { id } });
-        if (!order)
-            throw new Error('Order not found');
-        if (order.status !== 'PENDING')
-            throw new Error('Order must be PENDING to start production');
         return this.prisma.$transaction(async (prisma) => {
+            const order = await prisma.order.findUnique({ where: { id } });
+            if (!order)
+                throw new Error('Order not found');
+            if (order.status !== 'PENDING')
+                throw new Error('Order must be PENDING to start production');
             const updatedOrder = await prisma.order.update({
                 where: { id },
                 data: { status: 'IN_PRODUCTION' },

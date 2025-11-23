@@ -22,8 +22,8 @@ export declare class OrdersService {
             orderId: string;
             productId: string;
             quantity: number;
-            unitPrice: number;
             configuration: string | null;
+            unitPrice: number;
         })[];
     } & {
         id: string;
@@ -41,16 +41,16 @@ export declare class OrdersService {
             id: string;
             orderId: string;
             waybillNumber: string;
-            shippedAt: Date;
             carrierInfo: string | null;
+            shippedAt: Date;
         } | null;
         items: {
             id: string;
             orderId: string;
             productId: string;
             quantity: number;
-            unitPrice: number;
             configuration: string | null;
+            unitPrice: number;
         }[];
         production: {
             id: string;
@@ -74,8 +74,8 @@ export declare class OrdersService {
             id: string;
             orderId: string;
             waybillNumber: string;
-            shippedAt: Date;
             carrierInfo: string | null;
+            shippedAt: Date;
         } | null;
         items: ({
             product: {
@@ -91,8 +91,8 @@ export declare class OrdersService {
             orderId: string;
             productId: string;
             quantity: number;
-            unitPrice: number;
             configuration: string | null;
+            unitPrice: number;
         })[];
         production: ({
             history: {

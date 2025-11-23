@@ -10,6 +10,7 @@ import { AuthModule } from './auth/auth.module';
 import { ShipmentModule } from './shipment/shipment.module';
 import { PrismaModule } from './prisma.module';
 import { CustomersModule } from './customers/customers.module';
+import { BiModule } from './bi/bi.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { CustomersModule } from './customers/customers.module';
     ProductionModule,
     ShipmentModule,
     CustomersModule,
+    BiModule,
   ],
   controllers: [AppController],
   providers: [AppService],

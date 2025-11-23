@@ -63,6 +63,11 @@ export function Sidebar() {
             label: "Müşteriler",
             icon: Users,
         },
+        {
+            href: "/dashboard/bi",
+            label: "İş Zekası",
+            icon: LineChart,
+        },
     ]
 
     return (

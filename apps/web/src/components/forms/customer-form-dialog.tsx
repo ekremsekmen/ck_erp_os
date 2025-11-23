@@ -48,6 +48,7 @@ interface CustomerFormDialogProps {
 export function CustomerFormDialog({ customer, onSuccess, trigger }: CustomerFormDialogProps) {
     const [open, setOpen] = useState(false)
     const [isSubmitting, setIsSubmitting] = useState(false)
+    const [customerType, setCustomerType] = useState<'INDIVIDUAL' | 'CORPORATE'>('CORPORATE')
 
     const form = useForm<CustomerFormValues>({
         resolver: zodResolver(customerFormSchema),
@@ -65,6 +66,9 @@ export function CustomerFormDialog({ customer, onSuccess, trigger }: CustomerFor
     useEffect(() => {
         if (open) {
             if (customer) {
+                // Determine type based on tax office presence
+                setCustomerType(customer.taxOffice ? 'CORPORATE' : 'INDIVIDUAL')
+
                 form.reset({
                     name: customer.name,
                     email: customer.email || "",
@@ -74,6 +78,7 @@ export function CustomerFormDialog({ customer, onSuccess, trigger }: CustomerFor
                     taxOffice: customer.taxOffice || "",
                 })
             } else {
+                setCustomerType('CORPORATE') // Default for new customers
                 form.reset({
                     name: "",
                     email: "",
@@ -89,10 +94,17 @@ export function CustomerFormDialog({ customer, onSuccess, trigger }: CustomerFor
     async function onSubmit(data: CustomerFormValues) {
         setIsSubmitting(true)
         try {
+            // Clean up data based on type
+            const cleanData = { ...data }
+            if (customerType === 'INDIVIDUAL') {
+                cleanData.taxOffice = "" // Clear tax office for individuals
+                cleanData.taxId = "" // Clear tax ID for individuals
+            }
+
             if (customer) {
-                await updateCustomer(customer.id, data)
+                await updateCustomer(customer.id, cleanData)
             } else {
-                await createCustomer(data)
+                await createCustomer(cleanData)
             }
             setOpen(false)
             onSuccess?.()
@@ -120,6 +132,27 @@ export function CustomerFormDialog({ customer, onSuccess, trigger }: CustomerFor
                         {customer ? "Müşteri bilgilerini güncelleyin." : "Yeni bir müşteri kaydı oluşturun."}
                     </DialogDescription>
                 </DialogHeader>
+
+                {/* Customer Type Toggle */}
+                <div className="flex p-1 bg-muted rounded-lg">
+                    <Button
+                        type="button"
+                        variant={customerType === 'INDIVIDUAL' ? 'default' : 'ghost'}
+                        className="flex-1 h-8 text-xs shadow-none"
+                        onClick={() => setCustomerType('INDIVIDUAL')}
+                    >
+                        Bireysel
+                    </Button>
+                    <Button
+                        type="button"
+                        variant={customerType === 'CORPORATE' ? 'default' : 'ghost'}
+                        className="flex-1 h-8 text-xs shadow-none"
+                        onClick={() => setCustomerType('CORPORATE')}
+                    >
+                        Kurumsal
+                    </Button>
+                </div>
+
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                         <FormField
@@ -129,7 +162,7 @@ export function CustomerFormDialog({ customer, onSuccess, trigger }: CustomerFor
                                 <FormItem>
                                     <FormLabel>Müşteri Adı / Ünvanı</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="ABC İnşaat Ltd. Şti." {...field} />
+                                        <Input placeholder={customerType === 'CORPORATE' ? "ABC İnşaat Ltd. Şti." : "Ad Soyad"} {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -176,34 +209,37 @@ export function CustomerFormDialog({ customer, onSuccess, trigger }: CustomerFor
                                 </FormItem>
                             )}
                         />
-                        <div className="grid grid-cols-2 gap-4">
-                            <FormField
-                                control={form.control}
-                                name="taxId"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>Vergi No / TC</FormLabel>
-                                        <FormControl>
-                                            <Input placeholder="1234567890" {...field} />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
-                            <FormField
-                                control={form.control}
-                                name="taxOffice"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>Vergi Dairesi</FormLabel>
-                                        <FormControl>
-                                            <Input placeholder="Zincirlikuyu VD" {...field} />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
-                        </div>
+                        {/* Tax Info - Only for Corporate */}
+                        {customerType === 'CORPORATE' && (
+                            <div className="grid grid-cols-2 gap-4">
+                                <FormField
+                                    control={form.control}
+                                    name="taxId"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>Vergi No</FormLabel>
+                                            <FormControl>
+                                                <Input placeholder="1234567890" {...field} />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={form.control}
+                                    name="taxOffice"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>Vergi Dairesi</FormLabel>
+                                            <FormControl>
+                                                <Input placeholder="Zincirlikuyu VD" {...field} />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                            </div>
+                        )}
                         <DialogFooter>
                             <Button type="submit" disabled={isSubmitting}>
                                 {isSubmitting ? "Kaydediliyor..." : "Kaydet"}

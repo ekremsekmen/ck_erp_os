@@ -104,12 +104,16 @@ export class OrdersService {
   }
 
   async startProduction(id: string) {
-    // Check if order exists and is in PENDING status
-    const order = await this.prisma.order.findUnique({ where: { id } });
-    if (!order) throw new Error('Order not found');
-    if (order.status !== 'PENDING') throw new Error('Order must be PENDING to start production');
-
     return this.prisma.$transaction(async (prisma) => {
+      // Check if order exists and is in PENDING status INSIDE the transaction
+      // This ensures we have the latest state and locks the row if needed (depending on isolation level)
+      // For stricter safety, we could use raw SQL "SELECT ... FOR UPDATE" or optimistic locking.
+      // But moving it inside the transaction is the first critical step.
+      const order = await prisma.order.findUnique({ where: { id } });
+
+      if (!order) throw new Error('Order not found');
+      if (order.status !== 'PENDING') throw new Error('Order must be PENDING to start production');
+
       // Update order status
       const updatedOrder = await prisma.order.update({
         where: { id },

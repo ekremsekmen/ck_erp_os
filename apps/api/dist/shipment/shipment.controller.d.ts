@@ -9,8 +9,8 @@ export declare class ShipmentController {
         id: string;
         orderId: string;
         waybillNumber: string;
-        shippedAt: Date;
         carrierInfo: string | null;
+        shippedAt: Date;
     }>;
     findAll(): import(".prisma/client").Prisma.PrismaPromise<({
         order: {
@@ -27,8 +27,8 @@ export declare class ShipmentController {
         id: string;
         orderId: string;
         waybillNumber: string;
-        shippedAt: Date;
         carrierInfo: string | null;
+        shippedAt: Date;
     })[]>;
     findOne(id: string): import(".prisma/client").Prisma.Prisma__ShipmentClient<({
         order: {
@@ -46,8 +46,8 @@ export declare class ShipmentController {
                 orderId: string;
                 productId: string;
                 quantity: number;
-                unitPrice: number;
                 configuration: string | null;
+                unitPrice: number;
             })[];
         } & {
             id: string;
@@ -63,22 +63,22 @@ export declare class ShipmentController {
         id: string;
         orderId: string;
         waybillNumber: string;
-        shippedAt: Date;
         carrierInfo: string | null;
+        shippedAt: Date;
     }) | null, null, import("@prisma/client/runtime/library").DefaultArgs>;
     update(id: string, updateShipmentDto: UpdateShipmentDto): import(".prisma/client").Prisma.Prisma__ShipmentClient<{
         id: string;
         orderId: string;
         waybillNumber: string;
-        shippedAt: Date;
         carrierInfo: string | null;
+        shippedAt: Date;
     }, never, import("@prisma/client/runtime/library").DefaultArgs>;
     remove(id: string): import(".prisma/client").Prisma.Prisma__ShipmentClient<{
         id: string;
         orderId: string;
         waybillNumber: string;
-        shippedAt: Date;
         carrierInfo: string | null;
+        shippedAt: Date;
     }, never, import("@prisma/client/runtime/library").DefaultArgs>;
     getWaybillPdf(id: string, res: Response): Promise<void>;
 }

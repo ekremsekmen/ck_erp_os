@@ -1,4 +1,7 @@
+"use client"
+
 import Link from "next/link"
+import { logout } from "@/lib/api-client"
 import {
     CircleUser,
     Home,
@@ -145,7 +148,7 @@ export default function DashboardLayout({
                             <DropdownMenuItem>Ayarlar</DropdownMenuItem>
                             <DropdownMenuItem>Destek</DropdownMenuItem>
                             <DropdownMenuSeparator />
-                            <DropdownMenuItem>Çıkış Yap</DropdownMenuItem>
+                            <DropdownMenuItem onClick={logout} className="cursor-pointer">Çıkış Yap</DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
                 </header>

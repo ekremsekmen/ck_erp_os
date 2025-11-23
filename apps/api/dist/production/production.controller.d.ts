@@ -27,8 +27,8 @@ export declare class ProductionController {
                 orderId: string;
                 productId: string;
                 quantity: number;
-                unitPrice: number;
                 configuration: string | null;
+                unitPrice: number;
             })[];
         } & {
             id: string;
@@ -63,8 +63,8 @@ export declare class ProductionController {
                 orderId: string;
                 productId: string;
                 quantity: number;
-                unitPrice: number;
                 configuration: string | null;
+                unitPrice: number;
             })[];
         } & {
             id: string;
