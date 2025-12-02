@@ -13,10 +13,10 @@ export declare class BiService {
             totalCost: number;
             priceHistory: {
                 id: string;
-                changedAt: Date;
                 materialId: string;
                 currency: string;
                 price: number;
+                changedAt: Date;
             }[];
             isHistorical: boolean;
         }[];
